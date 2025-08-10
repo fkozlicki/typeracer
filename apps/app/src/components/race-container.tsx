@@ -26,7 +26,6 @@ export default function RaceContainer({
       ) : (
         <>
           <RaceInput
-            startTime={race.start_time ?? ""}
             userId={userId}
             raceId={race.id}
             sentence={race.sentence.text}
