@@ -35,7 +35,7 @@ A real-time multiplayer typing race game built with Next.js + Supabase
 
 ```mermaid
 graph TD
-    A[User clicks "Start a new Race"] --> B[Find/Create race in races table]
+    A[User clicks Start new Race] --> B[Find/Create race in races table]
     B --> C[Join race - Insert into race_players table]
     C --> D[Redirect to race page]
     D --> E[2+ players joined?]
@@ -152,3 +152,4 @@ Based on the [Midday v1 repository](https://github.com/midday-ai/v1).
  - Inserting race results to stats table on race finish & displaying them in the table
  - Lazy loading
  - Other sign in methods + displaying user stats
+ - Improve timers sync
