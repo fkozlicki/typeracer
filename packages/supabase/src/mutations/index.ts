@@ -6,6 +6,7 @@ interface UpdateRacePlayerParams {
   wpm: number;
   userId: string;
   raceId: string;
+  accuracy: number;
 }
 
 export async function updateRacePlayer(
