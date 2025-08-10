@@ -146,7 +146,9 @@ Based on the [Midday v1 repository](https://github.com/midday-ai/v1).
 
 ## 🔥 Improvements
 
- - Cypress E2e in /apps dir
+ - Cypress E2E in /apps dir
  - Unit & Integration test in Next.js app
- - Better WPM/Accuracy calculation & better sentence input component
+ - Improve sentence input component (this one is very poor) + better WPM/accuracy calculation 
  - Inserting race results to stats table on race finish & displaying them in the table
+ - Lazy loading
+ - Other sign in methods + displaying user stats
