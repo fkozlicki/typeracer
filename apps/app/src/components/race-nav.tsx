@@ -1,6 +1,6 @@
-import { startRaceAction } from "@/actions/start-race-action";
 import { Button } from "@typeracer/ui/button";
 import Link from "next/link";
+import StartRaceButton from "./start-race-button";
 
 export default function RaceNav() {
   return (
@@ -8,7 +8,7 @@ export default function RaceNav() {
       <Button asChild>
         <Link href="/">Go Home</Link>
       </Button>
-      <Button onClick={startRaceAction}>Run a New Race</Button>
+      <StartRaceButton />
     </div>
   );
 }

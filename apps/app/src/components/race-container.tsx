@@ -2,6 +2,8 @@
 
 import { useRace } from "@/hooks/use-race";
 import type { Race } from "@typeracer/supabase/queries";
+import { Button } from "@typeracer/ui/button";
+import Link from "next/link";
 import { useState } from "react";
 import RaceHeader from "./race-header";
 import RaceInput from "./race-input";
@@ -22,14 +24,19 @@ export default function RaceContainer({
       {race.status === "finished" || isFinished ? (
         <RaceNav />
       ) : (
-        <RaceInput
-          startTime={race.start_time ?? ""}
-          userId={userId}
-          raceId={race.id}
-          sentence={race.sentence.text}
-          onComplete={() => setIsFinished(true)}
-          disabled={race.status === "waiting"}
-        />
+        <>
+          <RaceInput
+            startTime={race.start_time ?? ""}
+            userId={userId}
+            raceId={race.id}
+            sentence={race.sentence.text}
+            onComplete={() => setIsFinished(true)}
+            disabled={race.status === "waiting"}
+          />
+          <Button asChild>
+            <Link href="/">Back to Home</Link>
+          </Button>
+        </>
       )}
     </div>
   );
