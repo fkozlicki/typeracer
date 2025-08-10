@@ -1,0 +1,1 @@
+alter publication supabase_realtime add table races, race_players;
