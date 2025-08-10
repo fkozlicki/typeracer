@@ -1,5 +1,5 @@
-import ResultsTable from "@/components/results-table";
 import StartRaceButton from "@/components/start-race-button";
+import StatsTable from "@/components/stats-table";
 import { Suspense, use } from "react";
 
 export default function Home({
@@ -12,7 +12,7 @@ export default function Home({
       <StartRaceButton className="self-center" />
 
       <Suspense key={JSON.stringify(p)} fallback={"loading results..."}>
-        <ResultsTable searchParams={p} />
+        <StatsTable searchParams={p} />
       </Suspense>
     </div>
   );

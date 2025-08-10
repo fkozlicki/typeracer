@@ -13,7 +13,7 @@ export type Race = QueryData<ReturnType<typeof getRaceQuery>>;
 
 export type RacePlayer = Database["public"]["Tables"]["race_players"]["Row"];
 
-export const getRacePlayersQuery = (
+export const getStatsQuery = (
   supabase: Client,
   { page = 0, size = 10 }: { size?: number; page?: number },
 ) => {
@@ -21,7 +21,9 @@ export const getRacePlayersQuery = (
   const to = (page + 1) * size - 1;
 
   return supabase
-    .from("race_players")
-    .select("*", { count: "exact" })
+    .from("stats")
+    .select("*, profile:profiles!inner(username)", { count: "exact" })
     .range(from, to);
 };
+
+export type Stat = QueryData<ReturnType<typeof getStatsQuery>>[number];

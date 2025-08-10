@@ -1,40 +1,41 @@
 import type { ColumnDef } from "@tanstack/react-table";
-import {
-  type RacePlayer,
-  getRacePlayersQuery,
-} from "@typeracer/supabase/queries";
+import { type Stat, getStatsQuery } from "@typeracer/supabase/queries";
 import { createClient } from "@typeracer/supabase/server";
 import { DataTable } from "./data-table";
 
-export default async function ResultsTable({
+export default async function StatsTable({
   searchParams,
 }: { searchParams: Record<string, string> }) {
   const supabase = await createClient();
   const { pageSize, pageIndex } = searchParams;
 
-  const { data, count } = await getRacePlayersQuery(supabase, {
+  const { data, count } = await getStatsQuery(supabase, {
     page: pageIndex ? +pageIndex : undefined,
     size: pageSize ? +pageSize : undefined,
   });
 
-  if (!data || !count) {
+  if (!data) {
     return null;
   }
 
-  return <DataTable columns={columns} data={data} rowCount={count} />;
+  return <DataTable columns={columns} data={data} rowCount={count ?? 0} />;
 }
 
-const columns: ColumnDef<RacePlayer>[] = [
+const columns: ColumnDef<Stat>[] = [
   {
     header: "Player name",
-    accessorKey: "username",
+    accessorKey: "profile.username",
   },
   {
-    header: "Words per minute",
-    accessorKey: "wpm",
+    header: "WPM",
+    accessorKey: "avg_wpm",
   },
   {
     header: "Accuracy",
-    accessorKey: "accuracy",
+    accessorKey: "avg_accuracy",
+  },
+  {
+    header: "Total races",
+    accessorKey: "total_races",
   },
 ];
