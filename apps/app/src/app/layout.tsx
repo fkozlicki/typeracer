@@ -3,6 +3,7 @@ import "./globals.css";
 import GuestSignIn from "@/components/guest-sign-in";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,8 +37,10 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GuestSignIn isAuthenticated={isAuthenticated} />
-        {children}
+        <NuqsAdapter>
+          <GuestSignIn isAuthenticated={isAuthenticated} />
+          {children}
+        </NuqsAdapter>
       </body>
     </html>
   );

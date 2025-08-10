@@ -17,9 +17,13 @@
 		"./cn": "./src/utils/cn.ts",
 		"./button": "./src/components/button.tsx",
 		"./input": "./src/components/input.tsx",
-		"./table": "./src/components/table.tsx"
+		"./table": "./src/components/table.tsx",
+		"./dropdown-menu": "./src/components/dropdown-menu.tsx",
+		"./select": "./src/components/select.tsx"
 	},
 	"dependencies": {
+		"@radix-ui/react-dropdown-menu": "^2.1.15",
+		"@radix-ui/react-select": "^2.2.5",
 		"@radix-ui/react-slot": "^1.2.3",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",

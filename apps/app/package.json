@@ -12,7 +12,9 @@
     "@tanstack/react-table": "^8.21.3",
     "@typeracer/supabase": "workspace:*",
     "@typeracer/ui": "workspace:*",
+    "lucide-react": "^0.539.0",
     "next": "15.4.6",
+    "nuqs": "^2.4.3",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
