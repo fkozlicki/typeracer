@@ -1,7 +1,7 @@
 import RaceContainer from "@/components/race-container";
 import { getRaceQuery } from "@typeracer/supabase/queries";
 import { createClient } from "@typeracer/supabase/server";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 export default async function page({
   params,
@@ -10,11 +10,19 @@ export default async function page({
 
   const supabase = await createClient();
 
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    redirect("/");
+  }
+
   const { data } = await getRaceQuery(supabase, id);
 
   if (!data) {
     notFound();
   }
 
-  return <RaceContainer initialRace={data} />;
+  return <RaceContainer initialRace={data} userId={user.id} />;
 }

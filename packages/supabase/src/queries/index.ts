@@ -1,5 +1,5 @@
 import type { QueryData } from "@supabase/supabase-js";
-import type { Client } from "../types";
+import type { Client, Database } from "../types";
 
 export const getRaceQuery = (supabase: Client, id: string) => {
   return supabase
@@ -10,3 +10,5 @@ export const getRaceQuery = (supabase: Client, id: string) => {
 };
 
 export type Race = QueryData<ReturnType<typeof getRaceQuery>>;
+
+export type RacePlayer = Database["public"]["Tables"]["race_players"]["Row"];
